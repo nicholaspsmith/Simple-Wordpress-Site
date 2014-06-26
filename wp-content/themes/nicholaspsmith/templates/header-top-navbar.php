@@ -1,21 +1,17 @@
 <header class="banner navbar navbar-default navbar-static-top" role="banner">
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>
-    </div>
-
-    <nav class="collapse navbar-collapse" role="navigation">
-      <?php
-        if (has_nav_menu('primary_navigation')) :
-          wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav'));
-        endif;
-      ?>
+    <!-- body has the class "cbp-spmenu-push" -->
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+        <h3>Menu</h3>
+        <?php
+          if (has_nav_menu('primary_navigation')) :
+            wp_nav_menu(array('theme_location' => 'primary_navigation'));
+          endif;
+        ?>
     </nav>
   </div>
+  <section class="buttonset">
+      <!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
+      <button id="showLeftPush">Menu</button>
+  </section>
 </header>
