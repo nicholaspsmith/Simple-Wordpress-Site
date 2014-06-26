@@ -23,43 +23,19 @@ var Roots = {
   common: {
     init: function() {
       // JavaScript to be fired on all pages
-      var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-              menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-              menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-              menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-              showLeft = document.getElementById( 'showLeft' ),
-              showRight = document.getElementById( 'showRight' ),
-              showTop = document.getElementById( 'showTop' ),
-              showBottom = document.getElementById( 'showBottom' ),
-              showLeftPush = document.getElementById( 'showLeftPush' ),
-              showRightPush = document.getElementById( 'showRightPush' ),
-              body = document.body;
-       
-      showLeft.onclick = function() {
-          classie.toggle( this, 'active' );
-          classie.toggle( menuLeft, 'cbp-spmenu-open' );
-          disableOther( 'showLeft' );
-      };
 
-      showLeftPush.onclick = function() {
-          classie.toggle( this, 'active' );
-          classie.toggle( body, 'cbp-spmenu-push-toright' );
-          classie.toggle( menuLeft, 'cbp-spmenu-open' );
-          disableOther( 'showLeftPush' );
-      };
+      $('#showLeft').on('click', function() {
+        $('#showLeft').toggleClass('active');
+        $('#cbp-spmenu-s1').toggleClass('cbp-spmenu-open');
+      });
 
-       
-      function disableOther( button ) {
-          if( button !== 'showLeft' ) {
-              classie.toggle( showLeft, 'disabled' );
-          }
+      $('#showLeftPush').on('click', function () {
+        $('#showLeftPush').toggleClass('active');
+        $(document.body).toggleClass('cbp-spmenu-push-toright');
+        $('#cbp-spmenu-s1').toggleClass('cbp-spmenu-open');
+      });
 
 
-          if( button !== 'showLeftPush' ) {
-              classie.toggle( showLeftPush, 'disabled' );
-          }
-
-      }
     }
   },
   // Home page
