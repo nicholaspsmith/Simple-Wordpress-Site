@@ -6,7 +6,7 @@
  * replace the dash with an underscore when adding it to the object below.
  *
  * .noConflict()
- * The routing is enclosed within an anonymous function so that you can 
+ * The routing is enclosed within an anonymous function so that you can
  * always reference jQuery with $, even when in .noConflict() mode.
  *
  * Google CDN, Latest jQuery
@@ -16,13 +16,50 @@
 
 (function($) {
 
-// Use this variable to set up the common and page specific functions. If you 
+// Use this variable to set up the common and page specific functions. If you
 // rename this variable, you will also need to rename the namespace below.
 var Roots = {
   // All pages
   common: {
     init: function() {
       // JavaScript to be fired on all pages
+      var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+              menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+              menuTop = document.getElementById( 'cbp-spmenu-s3' ),
+              menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
+              showLeft = document.getElementById( 'showLeft' ),
+              showRight = document.getElementById( 'showRight' ),
+              showTop = document.getElementById( 'showTop' ),
+              showBottom = document.getElementById( 'showBottom' ),
+              showLeftPush = document.getElementById( 'showLeftPush' ),
+              showRightPush = document.getElementById( 'showRightPush' ),
+              body = document.body;
+       
+      showLeft.onclick = function() {
+          classie.toggle( this, 'active' );
+          classie.toggle( menuLeft, 'cbp-spmenu-open' );
+          disableOther( 'showLeft' );
+      };
+
+      showLeftPush.onclick = function() {
+          classie.toggle( this, 'active' );
+          classie.toggle( body, 'cbp-spmenu-push-toright' );
+          classie.toggle( menuLeft, 'cbp-spmenu-open' );
+          disableOther( 'showLeftPush' );
+      };
+
+       
+      function disableOther( button ) {
+          if( button !== 'showLeft' ) {
+              classie.toggle( showLeft, 'disabled' );
+          }
+
+
+          if( button !== 'showLeftPush' ) {
+              classie.toggle( showLeftPush, 'disabled' );
+          }
+
+      }
     }
   },
   // Home page
