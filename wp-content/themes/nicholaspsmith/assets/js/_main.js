@@ -23,16 +23,21 @@ var Roots = {
   common: {
     init: function() {
       // JavaScript to be fired on all pages
-
-      $('#showLeft').on('click', function() {
-        $('#showLeft').toggleClass('active');
-        $('#cbp-spmenu-s1').toggleClass('cbp-spmenu-open');
-      });
-
+      var open = false;
       $('#showLeftPush').on('click', function () {
-        $('#showLeftPush').toggleClass('active');
-        $(document.body).toggleClass('cbp-spmenu-push-toright');
-        $('#cbp-spmenu-s1').toggleClass('cbp-spmenu-open');
+        if (open) {
+          $('#showLeftPush').toggleClass('active');
+          $('#showLeftPush').html('<i class="fa fa-bars"></i>');
+          $(document.body).toggleClass('cbp-spmenu-push-toright');
+          $('#cbp-spmenu-s1').toggleClass('cbp-spmenu-open');
+          open = false;
+        } else {
+          $('#showLeftPush').toggleClass('active');
+          $('#showLeftPush').html('<i class="fa fa-caret-square-o-left"></i>');
+          $(document.body).toggleClass('cbp-spmenu-push-toright');
+          $('#cbp-spmenu-s1').toggleClass('cbp-spmenu-open');
+          open = true;
+        }
       });
 
 

@@ -15,6 +15,9 @@ body {
    overflow-x: hidden;
    position: relative;
    left: 0;
+   background: url(/mysite/wp-content/themes/nicholaspsmith/assets/img/sky-home.jpg);
+   background-size: cover;
+   color: #fff;
 }
 
 
@@ -23,26 +26,42 @@ body {
    Header
    ========================================================================== */
 
-.banner { }
+.banner {
+  background: transparent;
+  border: none;
+}
+
+.open-menu {
+  height: 50px;
+  width: 50px;
+  font-size: 29px;
+  background: transparent;
+  border: none;
+  color: @brand-primary;
+  color: #fff;
+}
 
 /* ==========================================================================
    Sliding Nav Menu Styles
    ========================================================================== */
-
-/* General styles for all menus */
+.menu {
+  list-style: none;
+  padding: 0;
+}
 
 .cbp-spmenu {
-    background: #47a3da;
+    background: @brand-primary;
     position: fixed;
+    box-shadow: inset -4px 0px 26px black;
 }
 
 .cbp-spmenu h3 {
-    color: #afdefa;
+    color: @brand-secondary;
     font-size: 1.9em;
     padding: 20px;
     margin: 0;
     font-weight: 300;
-    background: #0d77b6;
+    text-align: center;
 }
 
 .cbp-spmenu a {
@@ -50,9 +69,13 @@ body {
     color: #fff;
     font-size: 1.1em;
     font-weight: 300;
+    text-shadow: 1px 2px 1px black;
+    text-align: center;
+    font-weight: 900;
 }
 
 .cbp-spmenu a:hover {
+    text-decoration: none;
     background: #258ecd;
 }
 
@@ -71,7 +94,6 @@ body {
 }
 
 .cbp-spmenu-vertical a {
-    border-bottom: 1px solid #258ecd;
     padding: 1em;
 }
 
@@ -83,18 +105,6 @@ body {
     overflow: hidden;
 }
 
-.cbp-spmenu-horizontal h3 {
-    height: 100%;
-    width: 20%;
-    float: left;
-}
-
-.cbp-spmenu-horizontal a {
-    float: left;
-    width: 20%;
-    padding: 0.8em;
-    border-left: 1px solid #258ecd;
-}
 
 /* Vertical menu that slides from the left or right */
 
@@ -112,24 +122,6 @@ body {
 
 .cbp-spmenu-right.cbp-spmenu-open {
     right: 0px;
-}
-
-/* Horizontal menu that slides from the top or bottom */
-
-.cbp-spmenu-top {
-    top: -150px;
-}
-
-.cbp-spmenu-bottom {
-    bottom: -150px;
-}
-
-.cbp-spmenu-top.cbp-spmenu-open {
-    top: 0px;
-}
-
-.cbp-spmenu-bottom.cbp-spmenu-open {
-    bottom: 0px;
 }
 
 /* Push classes applied to the body */
