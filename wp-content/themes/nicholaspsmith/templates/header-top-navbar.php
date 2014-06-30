@@ -12,6 +12,6 @@
   </div>
   <section class="buttonset">
       <!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
-      <button id="showLeftPush">Menu</button>
+      <button id="showLeftPush" class="open-menu"><i class="fa fa-bars"></i></button>
   </section>
 </header>
